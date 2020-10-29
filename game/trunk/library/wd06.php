@@ -1,0 +1,4 @@
+<?php
+
+	$baseurl = "/game/trunk/";
+?>
