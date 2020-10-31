@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 
 	$service_name = $_GET["service"];

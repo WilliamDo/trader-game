@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <? $gamename = "SEA QUEST"; ?>
 <html>
 <head>

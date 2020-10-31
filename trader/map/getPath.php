@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 header('Content-Type: text/xml');
 // MUST CHANGE MACHINE NAME
