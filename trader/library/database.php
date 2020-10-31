@@ -7,7 +7,7 @@
 * Throws an exception if connection error occurs
 */
 
-$dbconn = pg_pconnect("host=db.doc.ic.ac.uk port=5432 dbname=g0727127_u user=g0727127_u password=6IJWzyfJiN");
+$dbconn = pg_pconnect("host=db port=5432 dbname=g0727127_u user=g0727127_u password=6IJWzyfJiN");
 
 if (!$dbconn) {
 	throw new Exception("Unable to connect to the database");
