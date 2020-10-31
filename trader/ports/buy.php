@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 	require_once("../library/loadall.php");
 	$item_name = $_GET["item"];

@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 
 include("../library/session.php");

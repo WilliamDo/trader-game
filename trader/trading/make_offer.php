@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 	/* Should change name to "bid" */
 

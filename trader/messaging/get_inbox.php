@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 	/* Retrieve inbox */
 	require_once("../library/loadall.php");

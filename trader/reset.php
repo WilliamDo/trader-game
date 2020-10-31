@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?
 require_once("library/session.php");
 require_once("library/database.php");
