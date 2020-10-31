@@ -4,3 +4,15 @@ services:
     build: .
     ports:
       - "80:80"
+  db:
+    ports:
+      - "5432:5432"
+    image: postgres
+    restart: always
+    environment: 
+      POSTGRES_PASSWORD: example
+    volumes:
+      - ./database/:/docker-entrypoint-initdb.d/
+
+volumes:
+  database:

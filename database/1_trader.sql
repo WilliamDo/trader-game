@@ -1,3 +1,5 @@
+\c g0727127_u g0727127_u;
+
 /*
 
 	GROUP 27
@@ -5,19 +7,19 @@
 
  */
 
-DROP TABLE Users CASCADE;
-DROP TABLE Messages CASCADE;
-DROP TABLE Ship;
-DROP TABLE Port CASCADE;
-DROP TABLE Market CASCADE;
-DROP TABLE Inventory;
-DROP TABLE Item CASCADE;
-DROP TABLE Trades;
-DROP TABLE PortLocation;
-DROP TABLE PortServices;
+-- DROP TABLE Users CASCADE;
+-- DROP TABLE Messages CASCADE;
+-- DROP TABLE Ship;
+-- DROP TABLE Port CASCADE;
+-- DROP TABLE Market CASCADE;
+-- DROP TABLE Inventory;
+-- DROP TABLE Item CASCADE;
+-- DROP TABLE Trades;
+-- DROP TABLE PortLocation;
+-- DROP TABLE PortServices;
 
-DROP TABLE Battles;
-DROP TABLE ShipType;
+-- DROP TABLE Battles;
+-- DROP TABLE ShipType;
 
 CREATE TABLE Users (
 	username text unique primary key NOT NULL , 
