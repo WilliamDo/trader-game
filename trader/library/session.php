@@ -7,7 +7,7 @@ global $baseurl;
 
 $baseurl = "/project/2007/271/g0727127/web/trader/trunk/";
 
-if (!session_is_registered("username")) {
+if (!isset($_SESSION["username"])) {
 	header("Location: $baseurl");
 }
 
