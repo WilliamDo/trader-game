@@ -25,6 +25,8 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
+    implementation 'org.eclipse.jetty:jetty-server:9.4.3.v20170317'
+    implementation 'org.eclipse.jetty:jetty-servlet:9.4.3.v20170317'
 }
 
 application {
