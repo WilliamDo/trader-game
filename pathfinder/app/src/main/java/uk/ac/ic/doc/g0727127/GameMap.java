@@ -1,3 +1,5 @@
+package uk.ac.ic.doc.g0727127;
+
 public class GameMap {
 	public static final int WIDTH = 75;
 	public static final int HEIGHT = 35;
