@@ -2,7 +2,7 @@
 header('Content-Type: text/xml');
 // MUST CHANGE MACHINE NAME
 $machine = "ray14";
-$url = "http://{$machine}.doc.ic.ac.uk:59999/servlet/FindPath?sx=".$_GET['sx']."&sy=".$_GET['sy']."&tx=".$_GET['tx']."&ty=".$_GET['ty']."&ltr=".$_GET['ltr'];
+$url = "http://pathfinder:8090/servlet/FindPath?sx=".$_GET['sx']."&sy=".$_GET['sy']."&tx=".$_GET['tx']."&ty=".$_GET['ty']."&ltr=".$_GET['ltr'];
 
 $curl_handle=curl_init();
 curl_setopt($curl_handle,CURLOPT_URL,$url);

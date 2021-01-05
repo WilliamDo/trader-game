@@ -13,6 +13,10 @@ services:
       POSTGRES_PASSWORD: example
     volumes:
       - ./database/:/docker-entrypoint-initdb.d/
+  pathfinder:
+    ports:
+      - "8090:8090"
+    build: ./pathfinder
 
 volumes:
   database:
