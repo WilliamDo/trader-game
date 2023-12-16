@@ -3,11 +3,11 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
+      - "8080:80"
   db:
     ports:
       - "5432:5432"
-    image: postgres
+    image: postgres:13.13-bullseye
     restart: always
     environment: 
       POSTGRES_PASSWORD: example
