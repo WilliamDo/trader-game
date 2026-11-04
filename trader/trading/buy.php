@@ -94,7 +94,7 @@
 			$message = "$username bought from you $quantity of $item";
 		}
 		$qins_message = "INSERT INTO Messages (sender,receiver,sent,message) VALUES ('System Admin','$recipient','$now','$message')";
-		pg_query($qins_message);
+		pg_query($dbconn, $qins_message);
 	}	
 
 

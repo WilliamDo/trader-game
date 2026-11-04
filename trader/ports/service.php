@@ -12,7 +12,7 @@
 
 	/* Explain to user price of blah blah */
 	$qry_port_service = "SELECT * FROM PortServices WHERE number='$port_no' AND product='$service_name'";
-	$port_service = pg_query($qry_port_service);
+	$port_service = pg_query($dbconn, $qry_port_service);
 	$service = pg_fetch_assoc($port_service);
 	
 	$service_price = $service["quantity"];

@@ -10,13 +10,13 @@
 	$qry_user_ship = "SELECT * FROM Ship INNER JOIN ShipType 
 				ON Ship.shiptype = ShipType.shiptype 
 				AND username='$username'";
-	$res_user_ship = pg_query($qry_user_ship);
+	$res_user_ship = pg_query($dbconn, $qry_user_ship);
 	$user_ship = pg_fetch_assoc($res_user_ship);
 
 	$rank = $user_ship["rank"];
 
 	$qry_ships = "SELECT * FROM ShipType WHERE rank>$rank ORDER BY rank";
-	$ships = pg_query($qry_ships);
+	$ships = pg_query($dbconn, $qry_ships);
 
 	if (pg_num_rows($ships) == 0) {
 		echo "You already have the best ship!";

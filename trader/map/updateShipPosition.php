@@ -22,6 +22,6 @@ else {	// not in port
 }
 
 $result = pg_query($dbconn, $query);
-$delete = pg_query($qupd_trades);
+$delete = pg_query($dbconn, $qupd_trades);
 
 ?>

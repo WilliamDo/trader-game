@@ -48,7 +48,7 @@
 <?php
 	/* Port goods */	
 	$qry_port_goods = "SELECT * FROM PortServices INNER JOIN Item ON Item.item = PortServices.product WHERE number=$port_no AND item_type='good' ORDER BY Item.item";
-	$port_goods = pg_query($qry_port_goods);
+	$port_goods = pg_query($dbconn, $qry_port_goods);
 	
 	if (pg_num_rows($port_goods) == 0) {
 		echo "This port does not sell any goods";
@@ -74,7 +74,7 @@
 <?php
 	/* Port services */
 	$qry_port_goods = "SELECT * FROM PortServices INNER JOIN Item on Item.item = PortServices.product WHERE number=$port_no AND item_type='service'";
-        $port_goods = pg_query($qry_port_goods);
+        $port_goods = pg_query($dbconn, $qry_port_goods);
 
 	if (pg_num_rows($port_goods) == 0) {
 		echo "There are no services at this port";

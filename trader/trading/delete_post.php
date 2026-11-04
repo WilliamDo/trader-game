@@ -4,7 +4,7 @@
 	$offer_id = $_POST["offer_id"];
 
 	$qdel_post = "DELETE FROM Market WHERE offer_id='$offer_id'";
-	$result = pg_query($qdel_post);
+	$result = pg_query($dbconn, $qdel_post);
 
 	if ($result) {
 		echo "Post deleted";

@@ -23,7 +23,7 @@
 	
 	function getPortName($port_no) {
 		$qry_port = "SELECT name FROM Port WHERE number=$port_no";
-		$res_port = pg_query($qry_port);
+		$res_port = pg_query($dbconn, $qry_port);
 		$port = pg_fetch_assoc($res_port);
 		return $port["name"];
 	}
@@ -33,16 +33,16 @@
 		$qry_item_info = "SELECT round((sum(round(price,0)) / sum(round(quantity,0))),2) AS ppi 
 					FROM trades WHERE item='$item_name'";
 
-		$item_info = pg_fetch_assoc(pg_query($qry_item_info));
+		$item_info = pg_fetch_assoc(pg_query($dbconn, $qry_item_info));
 		$ppi = $item_info["ppi"];
 		if (!$ppi) {$ppi = "n/a";}
 
 		$qry_total = "SELECT count(item) AS total FROM trades";
-		$total_info = pg_fetch_assoc(pg_query($qry_total));
+		$total_info = pg_fetch_assoc(pg_query($dbconn, $qry_total));
 		$total = $total_info["total"];
 
 		$qry_fraction = "SELECT count(item) AS total FROM trades WHERE item='$item_name'";
-		$fraction_info = pg_fetch_assoc(pg_query($qry_fraction));
+		$fraction_info = pg_fetch_assoc(pg_query($dbconn, $qry_fraction));
 		$fraction = $fraction_info["total"];
 
 		if ($total != 0) {
@@ -52,7 +52,7 @@
 		}
 		
 		$qry_item = "SELECT imageurl FROM Item WHERE item='$item_name'";
-		$res_item = pg_query($qry_item);
+		$res_item = pg_query($dbconn, $qry_item);
 		$inf_item = pg_fetch_assoc($res_item);
 	
 		$imageurl = $inf_item["imageurl"];

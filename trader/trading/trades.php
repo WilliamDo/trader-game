@@ -27,13 +27,13 @@
                         as sum on sum.item = inventory.item and sum.username = inventory.username      
                         where sum.username='$username' and inventory.item='$item_name'";
 
-                $user_item = pg_fetch_assoc(pg_query($qry_left));
+                $user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
 
                 $has = $user_item["left"];
 		$q = $user_item["quantity"];
                 if ($has == null || $q == 0) {
                         $qry_left = "select * from inventory where username='$username' and item='$item_name'";
-                        $user_item = pg_fetch_assoc(pg_query($qry_left));
+                        $user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
                         $has = $user_item["quantity"];
                 }
 

@@ -7,7 +7,7 @@
 	$buyer_username = $username;
 
 	$qry_ships = "SELECT * FROM ShipType WHERE shiptype='$ship_name'";
-	$ships = pg_query($qry_ships);	
+	$ships = pg_query($dbconn, $qry_ships);	
 	$ship = pg_fetch_assoc($ships);
 
 	$imageurl = $ship["imageurl"];

@@ -31,12 +31,12 @@ $qry_left = "select (quantity-sum) as left,* from inventory
              as sum on sum.item = inventory.item and sum.username = inventory.username 
              where sum.username='$username' and inventory.item='food'";
 
-$user_item = pg_fetch_assoc(pg_query($qry_left));
+$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
 $food = $user_item["left"];
 
 if ($food == null) {
 	$qry_left = "select * from inventory where username='$username' and item='food'";
-	$user_item = pg_fetch_assoc(pg_query($qry_left));
+	$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
 	$food = $user_item["quantity"];
 }
 

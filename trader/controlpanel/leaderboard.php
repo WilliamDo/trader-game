@@ -3,7 +3,7 @@
 	require_once("../library/loadall.php");
 
 	$qry_leaderboard = "SELECT * FROM Ship ORDER BY points DESC";
-	$res_leaderboard = pg_query($qry_leaderboard);
+	$res_leaderboard = pg_query($dbconn, $qry_leaderboard);
 
 ?>
 <table align='center' width='400'>

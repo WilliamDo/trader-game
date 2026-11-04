@@ -7,7 +7,7 @@
 
 	/* Get port name */
 	$qry_port = "SELECT * FROM Port WHERE number=$port_no";
-	$res_port = pg_query($qry_port);
+	$res_port = pg_query($dbconn, $qry_port);
 	$port = pg_fetch_assoc($res_port);
 	$port_name = $port["name"];
         echo "Buying $item_name at $port_name";

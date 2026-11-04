@@ -1,6 +1,6 @@
 <?php
 	$qry_posts = "SELECT * FROM Market, Item WHERE Market.item = Item.item AND username='$username' AND selling=true";
-	$posts = pg_query($qry_posts);
+	$posts = pg_query($dbconn, $qry_posts);
 
 ?>
 <script>
@@ -52,7 +52,7 @@
 <?php
 	
 	$qry_posts = "SELECT * FROM Market, Item WHERE Market.item = Item.item AND username='$username' AND selling=false";
-        $posts = pg_query($qry_posts);
+        $posts = pg_query($dbconn, $qry_posts);
 	
 	if (pg_num_rows($posts) == 0) {
 		echo "You have not posted any buy requests";
