@@ -14,7 +14,7 @@ if ($username == "") {
 
 // Look up the user
 $qry_user = "SELECT * FROM Users WHERE username = '". $username ."'";
-$user_record = pg_query($qry_user);
+$user_record = pg_query($dbconn, $qry_user);
 
 if (!$user_record) {
 	// Query failed
@@ -36,7 +36,7 @@ else {
 
 		// Update online flag and set lastseen timestamp
 		$query  = "UPDATE users SET online=true,lastseen='".date("Y-m-d H:i:s")."' WHERE username='$username'";
-		$result = pg_query($query);
+		$result = pg_query($dbconn, $query);
 
 		if(!$result) {
 			pg_close($dbconn);	// Close the database

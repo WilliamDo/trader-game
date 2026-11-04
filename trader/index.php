@@ -105,7 +105,7 @@ h1 {
 <?php
 
 // Error messages if any
-if ($_GET["error"]) {
+if (isset($_GET["error"])) {
 	echo "<tr><td colspan=\"2\"><p>";
 
 	$err_code = $_GET["error"];
@@ -121,7 +121,7 @@ if ($_GET["error"]) {
 
 ?>
 
-<tr><td class="title">Username: </td><td><input type="text" value="<?=($_POST["username"]);?>" name="username" /></td></tr>
+<tr><td class="title">Username: </td><td><input type="text" value="<?=($_POST["username"] ?? '');?>" name="username" /></td></tr>
 <tr><td class="title">Password: </td><td><input type="password" name="password" /></td></tr>
 <tr><td colspan="2" style="text-align:center"><p><input type="submit" value="Login" /></p></td></tr>
 <tr><td colspan="2"><p>Not registered?<br /><a href="register.php" rel="facebox">Register an account</a></p></td></tr>

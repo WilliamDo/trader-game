@@ -1,17 +1,17 @@
 <?
 require_once("library/database.php");
 
-if ($_POST['submit']) {
+if (isset($_POST['submit'])) {
 
 	$error = false;
 
-	if (!$_POST['password']) {
+	if (!isset($_POST['password'])) {
 		echo "You must enter a password.";
 		$error = true;
 	}
 
 	else {
-		if (!$_POST['confirmpassword']) {
+		if (!isset($_POST['confirmpassword'])) {
 			echo "You must confirm your password.";
 			$error = true;
 		}
@@ -22,7 +22,7 @@ if ($_POST['submit']) {
 		}
 
 		else {
-			if (!$_POST['username']) {
+			if (!isset($_POST['username'])) {
 				echo "You must enter a username.";
 				$error = true;
 			}
@@ -120,7 +120,7 @@ function registerMe(form) {
 <p id="error"></p>
 <table id="register_form">
 <tr><td colspan="2"><p>Please choose the following details:</p></td></tr>
-<tr><td class="title">Username: </td><td><input type="text" value="<?=$_POST["username"];?>" name="username" /></td></tr>
+<tr><td class="title">Username: </td><td><input type="text" value="<?=$_POST["username"] ?? '';?>" name="username" /></td></tr>
 <tr><td class="title">Password: </td><td><input type="password" name="password" /></td></tr>
 <tr><td class="title">Confirm password: </td><td><input type="password" name="confirmpassword" /></td></tr>
 <tr><td class="title">Ship name: </td><td><input type="text" name="shipname" /></td></tr>
