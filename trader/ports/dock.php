@@ -11,7 +11,7 @@
 	} else {
 		/* Docked */
 		$port_no = $ship["number"];
-		$port = pg_fetch_assoc(pg_query("SELECT * FROM Port WHERE number='$port_no'"));
+		$port = pg_fetch_assoc(pg_query($dbconn, "SELECT * FROM Port WHERE number='$port_no'"));
 		$port_name = $port["name"];
 		printpg("Welcome to $port_name");
 

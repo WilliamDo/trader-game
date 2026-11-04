@@ -17,7 +17,10 @@ if (!$dbconn) {
 * Executes the query
 */
 function db_exec_query($query) {
-	$result = pg_query($query);
+	// FIXME duplicate code above
+	$conn = pg_pconnect("host=db port=5432 dbname=g0727127_u user=g0727127_u password=6IJWzyfJiN");
+
+	$result = pg_query($conn, $query);
 
 	if ($result) {
 		return $result;

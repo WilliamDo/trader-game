@@ -9,7 +9,7 @@
 	$price = $_POST["price"];
 
 	/* Port's quantity */	
-	$port_item = pg_fetch_assoc(pg_query("SELECT * FROM PortServices 
+	$port_item = pg_fetch_assoc(pg_query($dbconn, "SELECT * FROM PortServices 
 						INNER JOIN Item on Item.item = PortServices.product 
 						WHERE number='$port_no' AND product='$item'"));
         $port_quantity = $port_item["quantity"];

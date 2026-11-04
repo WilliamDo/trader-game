@@ -13,7 +13,7 @@
         echo "Buying $item_name at $port_name";
 
 	/* Check port availability */
-	$port_item = pg_fetch_assoc(pg_query("SELECT * FROM PortServices WHERE number='$port_no' AND product='$item_name'"));
+	$port_item = pg_fetch_assoc(pg_query($dbconn, "SELECT * FROM PortServices WHERE number='$port_no' AND product='$item_name'"));
 	$quantity = $port_item["quantity"];
 
         if ($quantity == 0) {
