@@ -19,8 +19,11 @@ jar {
         attributes "Main-Class": "uk.ac.ic.doc.g0727127.App"
     }
 
+    // Required in Gradle 7+ to prevent build failures from duplicate files
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
     from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        // configurations.compile is removed; runtimeClasspath includes everything needed
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
