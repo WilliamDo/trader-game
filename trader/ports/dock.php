@@ -4,7 +4,6 @@
 	$qry_ship = "SELECT * FROM Ship WHERE username='$username' AND number is not null";
 	$ship_result = db_exec_query($qry_ship);
 	$ship = pg_fetch_assoc($ship_result);
-	$ship_name = $ship["shipname"];
 
 	if (pg_num_rows($ship_result) == 0) {
 		printpg("You have not docked at any port :(");
