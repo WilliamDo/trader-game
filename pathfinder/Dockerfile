@@ -1,9 +1,9 @@
-FROM gradle:7.6.4-jdk11 AS build
+FROM gradle:8.14.6-jdk21 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
 
-FROM openjdk:11.0.11-jre-slim
+FROM amazoncorretto:21.0.13-alpine3.24
 
 EXPOSE 8090
 
