@@ -23,18 +23,18 @@
 	$inventory = db_exec_query($qry_items);
 	$item = pg_fetch_assoc($inventory);
 
+	$qry_left = "select * from inventory where username='$username' and item='$item_name'";
+	$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
+	$has = $user_item["quantity"];
+
 	$qry_left = "select (quantity-sum) as left,* from inventory 
 			inner join (select username,item,sum(quantity) from market where selling=true group by username,item) 
 			as sum on sum.item = inventory.item and sum.username = inventory.username 
 			where sum.username='$username' and inventory.item='$item_name'";
 
 	$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
-
-	$has = $user_item["left"];
-	if ($has == null) {
-		$qry_left = "select * from inventory where username='$username' and item='$item_name'";
-		$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
-		$has = $user_item["quantity"];
+	if ($user_item) {
+		$has = $user_item["left"];
 	}
 	
 	echo "You have " . $has . " left to sell";

@@ -22,20 +22,29 @@
 
 /* Hmm */
 
+		// FIXME Tried to re-order the queries to fix the warning about accessing an array item
+		// from a boolean, this is just a temporary fix and would benefit from refactoring.
+		// The aim of this section I believe is to calculate how many items the player has left
+		// after taking into account any pending sell requests.
+		$qry_left = "select * from inventory where username='$username' and item='$item_name'";
+		$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
+		$has = $user_item["quantity"];
+
 		$qry_left = "select (quantity-sum) as left,* from inventory 
                         inner join (select username,item,sum(quantity) from market where selling = true group by username,item) 
                         as sum on sum.item = inventory.item and sum.username = inventory.username      
                         where sum.username='$username' and inventory.item='$item_name'";
 
-                $user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
+		$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
 
-                $has = $user_item["left"];
-		$q = $user_item["quantity"];
-                if ($has == null || $q == 0) {
-                        $qry_left = "select * from inventory where username='$username' and item='$item_name'";
-                        $user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
-                        $has = $user_item["quantity"];
-                }
+		if ($user_item) {
+			$has = $user_item["left"];
+			$q = $user_item["quantity"];
+			if ($has == null || $q == 0) {
+
+			}
+		}
+		
 
 /* Hmm */
 
