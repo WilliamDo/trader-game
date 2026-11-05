@@ -5,7 +5,7 @@ global $username;
 global $currency;
 global $baseurl;
 
-$baseurl = "/project/2007/271/g0727127/web/trader/trunk/";
+$baseurl = "/";
 
 if (!isset($_SESSION["username"])) {
 	header("Location: $baseurl");

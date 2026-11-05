@@ -41,8 +41,8 @@ var baseurl = "<?=$baseurl;?>";
 		<p id="logoutbar"><span id="locateMe"><a href="javascript:locateMe()">Find my ship</a></span><a href="#">Help</a> | <a href="logout.php">Logout</a></p>
 		<p>You are logged in as <b><?=$username;?></b></p>
 		<p id="shipname">Your ship is named <b><?=$shipname;?></b></p>
-		<p>Balance: <?=$currency;?><span id="balance_text"><?=$points;?></span></p>
-		<p>Food available: <span id="food_text"><?=$food;?></span><!-- <a href="javascript:updateBalanceAndFood()">Update</a> --></p>
+		<p>Balance: <?=$currency;?><span id="balance_text">Loading ...</span></p>
+		<p>Food available: <span id="food_text">Loading ...</span><!-- <a href="javascript:updateBalanceAndFood()">Update</a> --></p>
 	</div>
 
 	<div id="left_bottom">

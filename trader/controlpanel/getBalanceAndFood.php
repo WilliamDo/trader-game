@@ -12,6 +12,9 @@ $row    = pg_fetch_assoc($result);
 
 $points = number_format($row['points']);
 
+$qry_left = "select * from inventory where username='$username' and item='food'";
+$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
+$food = $user_item["quantity"];
 
 $qry_left = "select (quantity-sum) as left,* from inventory 
              inner join (select username,item,sum(quantity) from market where selling = true group by username,item) 
@@ -19,12 +22,9 @@ $qry_left = "select (quantity-sum) as left,* from inventory
              where sum.username='$username' and inventory.item='food'";
 
 $user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
-$food = $user_item["left"];
 
-if ($food == null) {
-	$qry_left = "select * from inventory where username='$username' and item='food'";
-	$user_item = pg_fetch_assoc(pg_query($dbconn, $qry_left));
-	$food = $user_item["quantity"];
+if ($user_item) {
+    $food = $user_item["left"];
 }
 
 /*$query  = "SELECT quantity FROM inventory WHERE username='$username' and item='food'";
