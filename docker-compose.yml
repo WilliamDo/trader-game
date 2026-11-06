@@ -7,10 +7,12 @@ services:
   db:
     ports:
       - "5432:5432"
-    image: postgres:13.13-bullseye
+    image: postgres:18-alpine
     restart: always
     environment: 
-      POSTGRES_PASSWORD: example
+      POSTGRES_USER: g0727127_u
+      POSTGRES_PASSWORD: 6IJWzyfJiN
+      POSTGRES_DB: g0727127_u
     volumes:
       - ./database/:/docker-entrypoint-initdb.d/
   pathfinder:
