@@ -1,9 +1,9 @@
-FROM gradle:8.14.6-jdk21 AS build
+FROM gradle:9.8.2-jdk25 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
 
-FROM amazoncorretto:21.0.13-alpine3.24
+FROM amazoncorretto:25-alpine3.24
 
 EXPOSE 8090
 
