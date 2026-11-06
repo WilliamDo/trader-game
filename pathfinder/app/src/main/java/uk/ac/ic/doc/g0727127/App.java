@@ -4,7 +4,7 @@
 package uk.ac.ic.doc.g0727127;
 
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.ServletHandler;
+import org.eclipse.jetty.ee8.servlet.ServletContextHandler;
 
 public class App {
 
@@ -14,7 +14,7 @@ public class App {
             // The ServletHandler is a dead simple way to create a context handler
             // that is backed by an instance of a Servlet.
             // This handler then needs to be registered with the Server object.
-            ServletHandler handler = new ServletHandler();
+            ServletContextHandler handler = new ServletContextHandler();
             server.setHandler(handler);
 
             // Passing in the class for the Servlet allows jetty to instantiate an
@@ -23,7 +23,7 @@ public class App {
             // IMPORTANT:
             // This is a raw Servlet, not a Servlet that has been configured
             // through a web.xml @WebServlet annotation, or anything similar.
-            handler.addServletWithMapping(FindPath.class, "/servlet/FindPath");
+            handler.addServlet(FindPath.class, "/servlet/FindPath");
             server.start();
         } catch (Exception e) {
             e.printStackTrace();
