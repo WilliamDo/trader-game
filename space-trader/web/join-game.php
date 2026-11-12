@@ -26,7 +26,7 @@ $query = "INSERT INTO players (alias, pos_x, pos_y) VALUES ($1, $2, $3)";
 $result = pg_query_params($db, $query, [$player_name, 0, 0]);
 
 if ($result) {
-    echo "Successfully inserted new record!";
+    echo "{$player_name} has just joined the game!";
 } else {
     http_response_code(500);
     echo "Insert failed: " . pg_last_error($db);
