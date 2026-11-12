@@ -1,0 +1,5 @@
+CREATE TABLE players (
+	alias TEXT UNIQUE PRIMARY KEY NOT NULL, 
+	pos_x INTEGER,
+    pos_y INTEGER
+);
